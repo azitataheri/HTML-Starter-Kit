@@ -1,0 +1,314 @@
+/* BREAKPOINTS */
+@media (max-width: 400px) {
+    .tabs {
+        &__title {
+            ul {
+                padding-top: 20px;
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        &__content {
+            @include margin-padding(null, null, top, 50px);
+
+            &__disc {
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    }
+
+    .book {
+        margin-top: 0;
+
+        &__title {
+
+            span:first-child {
+                border-bottom: none;
+            }
+
+            span:last-child {
+                border-bottom: 2px solid $color-primary-lighter;
+            }
+        }
+    }
+}
+
+@media (max-width : 767px) {
+    .header {
+        background-position: center;
+        background-size: cover;
+        min-height: fit-content;
+        max-height: 100vh;
+
+        /* PRIMARY HEADER */
+        .primary-header {
+            @include margin-padding(null, null, top, 40px);
+
+            /* LOGO */
+            .logo {
+                width: 120px;
+                height: 80px;
+                @include margin-padding(all, 0 0 0 20px, null, null);
+            }
+
+            ul {
+                &.primary-navigation {
+                    position: fixed;
+                    z-index: 1000;
+                    inset: 0 0 0 0;
+                    flex-direction: column;
+                    background: linear-gradient(100deg, #000000 0%, rgba(0, 0, 0, 0.7) 100%);
+                    transform: translateX(-143%);
+                    transition: transform 400ms ease-in-out;
+                    @include margin-padding(null, null, all, 140px 50px);
+
+                    >li {
+                        @include margin-padding(null, null, all, 20px 30px);
+
+                        a {
+                            text-align: center;
+                            text-transform: capitalize;
+
+                            &.active {
+                                border-bottom: none !important;
+                                @include margin-padding(null, null, all, 0 0 0 20px);
+                                color: $color-primary-lighter !important;
+                                font-size: ($base-font-size) - 6;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .mobile-nav-toggle {
+                display: block;
+                position: absolute;
+                background-image: url("../img/bar.png");
+                background-size: cover;
+                border: none;
+                top: 70px;
+                right: 50px;
+                width: 28px;
+                aspect-ratio: 1;
+                z-index: 9999;
+            }
+        }
+
+
+        .discription {
+            @include margin-padding(all, 80px 0 0 0, null, null);
+
+            &__btn-group {
+                & button {
+                    &:last-child {
+                        @include margin-padding(top, 0, null, null);
+                    }
+                }
+            }
+        }
+    }
+
+    .tabs {
+        @include margin-padding(top, $sections-seprator-space, all, 50px);
+
+        &__title {
+            display: flex;
+            flex-direction: column;
+
+            ul {
+                padding-top: 20px;
+            }
+
+            .tabs-intro {
+                span:first-child {
+                    border-bottom: none;
+                }
+
+                span:last-child {
+                    border-bottom: 2px solid $color-primary-lighter !important;
+                }
+            }
+        }
+
+        &__content {
+            @include margin-padding(null, null, top, 50px);
+        }
+    }
+
+    .book {
+        margin-top: 0;
+
+        &__title {
+
+            span:first-child {
+                border-bottom: none;
+            }
+
+            span:last-child {
+                border-bottom: 2px solid $color-primary-lighter;
+            }
+        }
+    }
+
+    .popular {
+        &__title {
+            padding-bottom: 20px;
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            span:first-child {
+                border-bottom: none;
+            }
+
+            span:last-child {
+                border-bottom: 2px solid $color-primary-lighter;
+            }
+        }
+
+        .slider {
+            .slide {
+                &__text {
+                    padding: 0;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1000px) {
+    .header {
+        background-position: center;
+        background-size: cover;
+        min-height: fit-content;
+        max-height: 100vh;
+
+        /* PRIMARY HEADER */
+        .primary-header {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            @include margin-padding(null, null, top, 0);
+
+            ul {
+                display: flex;
+
+                &.primary-navigation {
+                    li {
+                        a {
+                            &.active {
+                                border-bottom: 2px solid $color-primary-lighter;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+
+        .discription {
+            @include margin-padding(all, 50px 0 0 0, null, null);
+        }
+    }
+
+    .tabs {
+        .tabs__title {
+            display: flex;
+            flex-direction: column;
+
+            ul {
+                padding-top: 20px;
+            }
+
+            .tabs-intro {
+                span:first-child {
+                    border-bottom: none;
+                }
+
+                span:last-child {
+                    border-bottom: 2px solid $color-primary-lighter !important;
+                }
+            }
+        }
+    }
+
+    .book {
+        margin-top: 0;
+
+        &__title {
+
+            span:first-child {
+                border-bottom: none;
+            }
+
+            span:last-child {
+                border-bottom: 2px solid $color-primary-lighter;
+            }
+        }
+    }
+}
+
+@media (min-width: 1001px) and (max-width: 1500px) {
+    .header {
+        background-position: center;
+        background-size: cover;
+        height: 100vh;
+
+        ul {
+            display: flex;
+
+            &.primary-navigation {
+                li {
+                    a {
+                        &.active {
+                            border-bottom: 2px solid $color-primary-lighter;
+                        }
+                    }
+                }
+            }
+        }
+
+        .discription {
+            @include margin-padding(all, -20px 0 0 0, null, null);
+        }
+    }
+}
+
+@media (min-width: 1501px) and (max-width: 1700px) {
+    .header {
+        background-position: center;
+        background-size: cover;
+        height: 100vh;
+
+        ul {
+            display: flex;
+
+            &.primary-navigation {
+                li {
+                    a {
+                        &.active {
+                            border-bottom: 2px solid $color-primary-lighter;
+                        }
+                    }
+                }
+            }
+        }
+
+        .discription {
+            @include margin-padding(all, 100px 0 0 0, null, null);
+        }
+    }
+}
+
+
+@media (min-width: 1701px) {
+    .discription {
+        @include margin-padding(all, 200px 0 0 0, null, null);
+    }
+}
