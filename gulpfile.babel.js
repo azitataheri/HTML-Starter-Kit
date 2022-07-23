@@ -33,7 +33,7 @@ exports.lint = lint;
 
 // Optimize images
 function images() {
-  return src('src/images/**/*')
+  return src('src/img/**/*')
     .pipe(imagemin([
       imagemin.gifsicle({ interlaced: true }),
       imagemin.mozjpeg({ progressive: true }),
@@ -45,8 +45,8 @@ function images() {
         ]
       })
     ]))
-    .pipe(dest('dist/images'))
-    .pipe($.size({ title: 'images' }));
+    .pipe(dest('dist/img'))
+    .pipe($.size({ title: 'img' }));
 }
 exports.images = images;
 
@@ -78,7 +78,7 @@ exports.fonts = fonts;
 // Copy all files at the root level (src)
 function placeholder(){
   return src('src/images-placeholder/**/*')
-    .pipe(dest('dist/images/'))
+    .pipe(dest('dist/img/'))
     .pipe($.size({ title: 'copy fonts' }));
 }
 
@@ -102,7 +102,7 @@ function styles() {
   return src(['src/styles/**/*.scss', 'src/styles/**/*.css'])
     .pipe($.newer('.tmp/styles'))
     .pipe(sass.sync({outputStyle: 'compressed'}).on('error', sass.logError))
-    // .pipe(sass().on('error', sass.logError))
+     .pipe(sass().on('error', sass.logError))
     .pipe($.autoprefixer(AUTOPREFIXER_BROWSERS))
     .pipe($.size({ title: 'styles' }))
     .pipe(dest('.tmp/styles'));
@@ -236,7 +236,7 @@ function start() {
   watch('src/**/*.html').on('change', reload);
   watch('src/styles/**/*.{scss,css}', styles).on('change', reload);
   watch('src/scripts/**/*.js', parallel(lint, scripts)).on('change', reload);
-  watch('src/images/**/*').on('change', reload);
+  watch('src/img/**/*').on('change', reload);
 }
 exports.start = start;
 
@@ -307,8 +307,8 @@ function getReleaseCommands() {
   return [
     `mkdir ${basePath}`,
     ...cp,
-    `rm -rf ${basePath}/src/images`,
-    `mv ${basePath}/src/images-placeholder ${basePath}/src/images`
+    `rm -rf ${basePath}/src/img`,
+    `mv ${basePath}/src/images-placeholder ${basePath}/src/img`
   ];
 }
 

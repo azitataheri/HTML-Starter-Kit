@@ -24,13 +24,13 @@ gulp.task('lint', () =>
 
 // Optimize images
 gulp.task('images', () =>
-  gulp.src('src/images/**/*')
+  gulp.src('src/img/**/*')
     .pipe($.cache($.imagemin({
       progressive: true,
       interlaced: true
     })))
-    .pipe(gulp.dest('dist/images'))
-    .pipe($.size({title: 'images'}))
+    .pipe(gulp.dest('dist/img'))
+    .pipe($.size({title: 'img'}))
 );
 
 // Copy all files at the root level (src)
@@ -161,7 +161,7 @@ gulp.task('serve', ['scripts', 'styles'], () => {
   gulp.watch(['src/**/*.html'], reload);
   gulp.watch(['src/styles/**/*.{scss,css}'], ['styles', reload]);
   gulp.watch(['src/scripts/**/*.js'], ['lint', 'scripts', reload]);
-  gulp.watch(['src/images/**/*'], reload);
+  gulp.watch(['src/img/**/*'], reload);
 });
 
 // Build and serve the output from the dist build
